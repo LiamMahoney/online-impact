@@ -117,7 +117,37 @@ export default function Home() {
                     <Form />
                 </ContentContainer>
                 <div className={styles.footer}>
-                    This is the footer. TODO:
+                    <div className={styles.footerSocialContainer}>
+                        <span className={styles.socialIconContainer}>
+                            <a 
+                                target="_blank"
+                                href="https://twitter.com/MikeLukashewich"
+                            >
+                                <Image
+                                    src="twitter.svg"
+                                    height={30}
+                                    width={30}
+                                    alt="twitter logo"
+                                    className={styles.socialIcon}
+                                />
+                            </a>
+                        </span>
+                        <span className={styles.socialIconContainer}>
+                            <a 
+                                target="_blank"
+                                href="https://www.linkedin.com/in/michaellukashewich"
+                            >
+                                <Image
+                                    src="linkedin.svg"
+                                    height={30}
+                                    width={30}
+                                    alt="linkedin logo"
+                                    className={styles.socialIcon}
+                                />
+                            </a>
+                        </span>
+                    </div>
+                    <p className={styles.copyright}>© 2023 Online Impact</p>
                 </div>
             </main>
         </>

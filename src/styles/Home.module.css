@@ -32,8 +32,6 @@
     font-weight: 500;
 }
 
-
-
 .buttonContainer {
     display: flex;
     align-items: center;
@@ -164,6 +162,25 @@
     width: 100vw;
     background-color: #ECE0D5;
     padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerSocialContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.socialIconContainer {
+    margin: 0 8px;
+}
+
+.copyright {
+    color: #666666;
+    margin-top: 5px;
 }
 
 @media (max-width: 900px) {
@@ -217,4 +234,3 @@
         text-align: center;
     }
 }
-
