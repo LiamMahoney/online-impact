@@ -1,0 +1,67 @@
+.contactContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom:75px;
+}
+
+.contactContainer .homeButton {
+    margin-top: 25px;
+}
+
+.Form {
+    margin-bottom: 75px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.formContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.headerLabel {
+    display: flex;
+    justify-content: center;
+}
+
+.inputGroup {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 500px;
+    max-width: 90%;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.homeButton {
+    margin: 5px;
+    padding: 10px;
+    background-color: unset;
+    border: 3px solid black;
+    border-radius: 10px;
+    min-width: 200px;
+    font-weight: 700;
+    text-transform:uppercase
+}
+
+.homeButton:hover {
+    animation: onHoverAnimation .5s;
+    animation-fill-mode: forwards;
+    transform: translateY(-1px);
+    cursor: pointer;
+}
+
+@keyframes onHoverAnimation {
+    100% {
+        background-color: #ECE0D5;
+    }
+}

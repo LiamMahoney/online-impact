@@ -10,8 +10,10 @@
 
 .contentContainer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: right;
 }
 
 .landingContianer {
@@ -19,7 +21,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
+    padding-top: 40px;
+    padding-bottom: 40px;
     max-height: 900px;
 }
 
@@ -32,28 +36,32 @@
     width: 100vw;
 }
 
-.servicesContainer {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    /* background-color: #ECE0D5; */
-    display: flex;
-    flex-direction: column;;
-    justify-content: center;
-    align-items: center;
+.landingDescription {
+    font-size: 22px;
+    font-weight: 500;
 }
+
+
 
 .buttonContainer {
     display: flex;
-    margin-top: 30px;
+    align-items: center;
+}
+
+.businessDescriptionContainer {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    max-width: 900px;
 }
 
 .contentDescription {
     flex-direction: column;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 500;
     text-align: center;
     max-width: 800px;
-    padding: 6rem 0;
+    /* padding: 6rem 0; */
 }
 
 .homeButton {
@@ -68,26 +76,45 @@
 }
 
 .homeButton:hover {
-    background-color: #ECE0D5;
+    animation: onHoverAnimation .5s;
+    animation-fill-mode: forwards;
+    transform: translateY(-1px);
     cursor: pointer;
+}
+
+@keyframes onHoverAnimation {
+    100% {
+        background-color: #ECE0D5;
+    }
+}
+
+.servicesContainer {
+    /* padding-top: 5rem;
+    padding-bottom: 5rem; */
+    /* background-color: #ECE0D5; */
+    display: flex;
+    flex-direction: column;;
+    justify-content: center;
+    align-items: center;
+    /* padding-bottom: 2rem; */
+    padding: 40px 0;
 }
 
 .serviceContainer {
     display: flex;
-    margin-top: 100px;
-    max-width: 800px;
     align-items: center;
+    margin-bottom: 40px;
 }
 
 .serviceHeaderEven {
     text-align: end;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
 .serviceHeaderOdd {
     text-align: start;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
@@ -108,15 +135,43 @@
 }
 
 .serviceDescription {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: end;
     color: #666666;
 }
 
 .serviceDescriptionOdd {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: start;
     color: #666666;
+}
+
+.businessDescriptionContainer {
+    display: flex;
+    padding: 60px 0;
+}
+
+.imageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.founderImage {
+    max-width: 90%;
+    border-radius: 25px;
+}
+
+.imageNotation {
+    color: #666666;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imageNotation p {
+    margin: 0;
 }
 
 .header {
@@ -149,3 +204,25 @@
     background-color: #ECE0D5;
     padding-top: 3rem;
 }
+
+@media (max-width: 900px) {
+    .buttonContainer {
+        flex-direction: column;
+        width: 80%;
+        max-width: 400px;
+    }
+
+    .homeButton {
+        width: 500px;
+        max-width: 90%;
+    }
+
+    .businessDescriptionContainer {
+        flex-direction: column;
+    }
+
+    .landingDescription {
+        text-align: center;
+    }
+}
+

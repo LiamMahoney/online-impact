@@ -1,0 +1,67 @@
+.input {
+    all: unset;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: inherit;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input:focus-visible {
+    background-color: #ECE0D5;
+}
+
+.invalid_input {
+    border: 3px solid red;
+}
+
+.labelText {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.requiredSymbol {
+    padding-left: 2px;
+}
+
+.label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.invalidDescription {
+    color: red;
+    font-size: .8rem;
+}
+
+.invalidTextContainer {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2px;
+}
+/* .labelRow {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.inputGroup {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    width: 500px;
+    max-width: 90%;
+}
+
+.invalid {
+    border: 3px solid red;
+}
+
+.input:invalid {
+    color: red;
+    font-size: .9rem;
+} */

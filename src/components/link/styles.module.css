@@ -1,0 +1,6 @@
+.link {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+}
