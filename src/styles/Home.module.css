@@ -178,6 +178,14 @@
     margin: 0 8px;
 }
 
+.socialIcon {
+    filter: invert(0%) sepia(70%) saturate(0%) hue-rotate(275deg) brightness(95%) contrast(106%);
+}
+
+.socialIcon:hover {
+    filter: invert(35%) sepia(19%) saturate(0%) hue-rotate(268deg) brightness(104%) contrast(82%);
+}
+
 .copyright {
     color: #666666;
     margin-top: 5px;
