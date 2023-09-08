@@ -44,6 +44,8 @@
     /* flex-direction: column; */
     justify-content: center;
     max-width: 900px;
+    padding: 60px 0;
+    align-items: center;
 }
 
 .contentDescription {
@@ -108,11 +110,6 @@
         margin-right: 100px;
         text-align: start;
     }
-}
-
-.businessDescriptionContainer {
-    display: flex;
-    padding: 60px 0;
 }
 
 .imageContainer {
