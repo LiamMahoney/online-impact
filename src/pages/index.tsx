@@ -2,12 +2,10 @@ import styles from '@/styles/Home.module.css'
 import FullLogo from '@/components/logo/full_logo'
 import { Content, Inter } from 'next/font/google'
 import WaveContainer from '@/components/wave_container/wave_container'
-import ConvertImage from '@/components/convert/convert_image'
-import SearchEngineImage from '@/components/search_engine/search_engine_image'
-import SocialMarketingImage from '@/components/social_marketing/social_marketing_image'
 import ContentContainer from '@/components/content_container/content_container'
 import Form from '@/components/form/form'
 import Link from '@/components/link/link'
+import Image from 'next/image';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +14,7 @@ export default function Home() {
         <>
             <main className={[styles.main, inter.className].join(' ')}>
                 <ContentContainer>
-                    <div className={styles.landingContianer}>
+                    <div className={styles.landingContainer}>
                         <FullLogo />
                         <p className={styles.landingDescription} >
                             Your partner in profitable growth
@@ -34,9 +32,14 @@ export default function Home() {
                 <WaveContainer>
                     <ContentContainer id="services">
                         <div className={styles.serviceContainer}>
-                            <SocialMarketingImage />
-                            <div className={styles.serviceContentContainerEven}>
-                                <p className={styles.serviceHeaderEven}>
+                            <Image
+                                src="/mobile.svg"
+                                height={225}
+                                width={225}
+                                alt="social media services"
+                            />
+                            <div className={styles.serviceContentContainer}>
+                                <p className={styles.serviceHeader}>
                                     Paid Social
                                 </p>
                                 <p className={styles.serviceDescription}>
@@ -45,26 +48,52 @@ export default function Home() {
                             </div>
                         </div>
                         <div className={styles.serviceContainer}>
-                            <div className={styles.serviceContentContainerOdd}>
-                                <p className={styles.serviceHeaderOdd}>
+                            <div className={styles.serviceContentContainer}>
+                                <p className={styles.serviceHeader}>
                                     Google Ads + Youtube
                                 </p>
-                                <p className={styles.serviceDescriptionOdd}>
+                                <p className={styles.serviceDescription}>
                                     We create, monitor and continually test the best ways Google and Youtube can fit in the media mix to help us profitably acquire customers.
                                 </p>
                             </div>
-                            <SearchEngineImage />
+                            <Image
+                                src="/web_search.svg"
+                                height={225}
+                                width={225}
+                                alt="google and youtube services"
+                            />
                         </div>
                         <div className={styles.serviceContainer}>
-                            <ConvertImage />
-                            <div className={styles.serviceContentContainerEven}>
-                                <p className={styles.serviceHeaderEven}>
+                            <Image
+                                src="/analytics.svg"
+                                height={225}
+                                width={225}
+                                alt="converting creative services"
+                            />
+                            <div className={styles.serviceContentContainer}>
+                                <p className={styles.serviceHeader}>
                                     Converting Creative
                                 </p>
                                 <p className={styles.serviceDescription}>
                                     Our specialty is not only to develop a creative strategy, but also create the ads to get people to convert.
                                 </p>
                             </div>
+                        </div>
+                        <div className={styles.serviceContainer}>
+                            <div className={styles.serviceContentContainer}>
+                                <p className={styles.serviceHeader}>
+                                    UGC
+                                </p>
+                                <p className={styles.serviceDescription}>
+                                    Allow us to source & work with creators to deliver you consistent, quality ads without the sourcing headache.
+                                </p>
+                            </div>
+                            <Image
+                                src="/ugc.svg"
+                                height={225}
+                                width={225}
+                                alt="user generated content services"
+                            />
                         </div>
                     </ContentContainer>
                 </WaveContainer>

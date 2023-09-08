@@ -8,20 +8,11 @@
     background-color: #F2EAE3;
 }
 
-.contentContainer {
+.landingContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: right;
-}
-
-.landingContianer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* height: 100vh; */
     padding-top: 40px;
     padding-bottom: 40px;
     max-height: 900px;
@@ -88,62 +79,35 @@
     }
 }
 
-.servicesContainer {
-    /* padding-top: 5rem;
-    padding-bottom: 5rem; */
-    /* background-color: #ECE0D5; */
-    display: flex;
-    flex-direction: column;;
-    justify-content: center;
-    align-items: center;
-    /* padding-bottom: 2rem; */
-    padding: 40px 0;
-}
-
 .serviceContainer {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    max-width: 700px;
 }
 
-.serviceHeaderEven {
-    text-align: end;
+.serviceHeader {
     font-size: 1.5rem;
     font-weight: 600;
-}
-
-.serviceHeaderOdd {
-    text-align: start;
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-/* .serviceHeader:nth-child(odd) {
-    text-align: end;
-}
-
-.serviceHeader:nth-child(even) {
-    text-align: start;
-} */
-
-.serviceContentContainerEven {
-    margin-left: 100px;
-}
-
-.serviceContentContainerOdd {
-    margin-right: 100px;
 }
 
 .serviceDescription {
     font-size: 1.1rem;
-    text-align: end;
     color: #666666;
 }
 
-.serviceDescriptionOdd {
-    font-size: 1.1rem;
-    text-align: start;
-    color: #666666;
+.serviceContainer:nth-of-type(odd) {
+    .serviceContentContainer {
+        margin-left: 100px;
+        text-align: end;
+    }
+}
+
+.serviceContainer:nth-of-type(even) {
+    .serviceContentContainer{
+        margin-right: 100px;
+        text-align: start;
+    }
 }
 
 .businessDescriptionContainer {
@@ -222,6 +186,37 @@
     }
 
     .landingDescription {
+        text-align: center;
+    }
+
+    .serviceContainer {
+        max-width: 90%;
+        /* flex-direction: column; */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .serviceContainer:nth-of-type(odd) {
+        flex-wrap: wrap;
+        
+        .serviceContentContainer {
+            margin-left: unset;
+        }
+    }
+
+    .serviceContainer:nth-of-type(even) {
+        flex-wrap: wrap-reverse;
+        
+        .serviceContentContainer {
+            margin-right: unset;
+        }
+    }
+
+    .serviceHeader {
+        text-align: center;
+    }
+
+    .serviceDescription {
         text-align: center;
     }
 }
