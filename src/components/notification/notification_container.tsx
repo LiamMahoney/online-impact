@@ -16,6 +16,7 @@ export default function NotificationContainer({ notifications, removeNotificatio
                         <Notification
                             noti={i}
                             removeNotification={removeNotification}
+                            key={i.id}
                         />
                     )
                 )
