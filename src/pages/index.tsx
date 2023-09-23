@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styles from '@/styles/Home.module.css'
 import FullLogo from '@/components/logo/full_logo'
 import { Content, Inter } from 'next/font/google'
@@ -5,11 +6,41 @@ import WaveContainer from '@/components/wave_container/wave_container'
 import ContentContainer from '@/components/content_container/content_container'
 import Form from '@/components/form/form'
 import Link from '@/components/link/link'
+import NotificationContainer from '@/components/notification/notification_container';
+import { NotificationDef } from '@/components/notification/notification/notification_desc';
 import Image from 'next/image';
+import { randomUUID } from 'crypto';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+    const [notifications, setNotifications] = useState<NotificationDef[]>([]);
+    
+    const handleFormSuccess = function() {
+        var successNoti:NotificationDef = {
+            type: 'success',
+            text: 'Successfully Sent Email',
+            id: Date.now()
+        };
+
+        setNotifications([...notifications, successNoti]);
+    }
+
+    const handleFormError = function() {
+        var errorNoti: NotificationDef = {
+            type: 'error',
+            text: 'Error Sending Email',
+            id: Date.now()
+        };
+
+        setNotifications([...notifications, errorNoti]);
+    }
+
+    const removeNotification = function(id:number) {
+        setNotifications(notifications.filter( (i:NotificationDef) => i.id != id));
+    }
+
     return (
         <>
             <main className={[styles.main, inter.className].join(' ')}>
@@ -114,8 +145,15 @@ export default function Home() {
                     </div>
                 </ContentContainer>
                 <ContentContainer id="contact">
-                    <Form />
+                    <Form
+                        onFormSuccess={handleFormSuccess}
+                        onFormError={handleFormError}
+                    />
                 </ContentContainer>
+                <NotificationContainer
+                    notifications={notifications}
+                    removeNotification={removeNotification}
+                />
                 <div className={styles.footer}>
                     <div className={styles.footerSocialContainer}>
                         <span className={styles.socialIconContainer}>

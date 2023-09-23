@@ -1,0 +1,37 @@
+.notification {
+    border: 3px solid black;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.successNotification {
+    background-color: #09BC8A;
+}
+
+.errorNotification {
+    background-color: #E13D18;
+}
+
+.notificationText {
+    font-weight: 700;
+    text-transform: uppercases;
+    margin: unset;
+}
+
+.notificationIcon {
+    padding: 0 15px;
+}
+
+.closeIcon {
+    rotate: 45deg;
+}
+
+.closeIcon:hover {
+    cursor: pointer;
+    filter: invert(15%) sepia(19%) saturate(0%) hue-rotate(268deg) brightness(104%) contrast(82%);
+}

@@ -1,10 +1,16 @@
-import styles from './styles.module.css';
+import styles from './form.module.css';
 import { useState } from 'react';
 import Input from './input/input';
+import Image from 'next/image';
 
 type InputEvent = React.ChangeEvent<HTMLInputElement>
 
-export default function Form() {
+type Props = {
+    onFormError: Function,
+    onFormSuccess: Function
+}
+
+export default function Form( { onFormError, onFormSuccess }:Props) {
     const [name, setName] = useState('');
     const [validName, setValidName] = useState(false);
     const [emailAddress, setEmailAddress] = useState('');
@@ -13,6 +19,7 @@ export default function Form() {
     const [validBusinessName, setValidBusinessName] = useState(false);
     const [businessWebsite, setBusinessWebsite] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [displaySpinner, setDisplaySpinner] = useState(false);
 
     function handleNameChange(e: InputEvent) {
         setName(e.target.value);
@@ -58,6 +65,7 @@ export default function Form() {
     }
 
     function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
+        setDisplaySpinner(true);
         setIsSubmitted(true);
         event.preventDefault();
 
@@ -65,12 +73,37 @@ export default function Form() {
         const isValid = validName && validEmailAddress && validBusinessName;
 
         if (isValid) {
-            //TODO:
-            console.log(`submitting form.\nname: ${name}\nemailAddress: ${emailAddress}\nbusinessName: ${businessName}\nbusinessWebsite: ${businessWebsite}`)
+            const text_body = `Name: ${name}\nEmail Address: ${emailAddress}\nBusiness Name: ${businessName}\nBusiness Website: ${businessWebsite ? businessWebsite : 'N/A'}`;
+            const html_body = `<p><b>Name:</b> ${name}</p><p><b>Email Address:</b> ${emailAddress}</p><p><b>Business Name:</b> ${businessName}</p><p><b>Business Website:</b> ${businessWebsite ? businessWebsite : 'N/A'}</p>`;
+
+            fetch('/api/send_email', {
+                method: 'POST',
+                body: JSON.stringify({
+                    text: text_body,
+                    html: html_body
+                })
+            }).then((res) => {
+                if (res.status == 201) {
+                    setName('');
+                    setEmailAddress('');
+                    setBusinessName('');
+                    setBusinessWebsite('');
+                    setIsSubmitted(false);
+                    onFormSuccess();
+                } else {
+                    onFormError();
+                }
+            }).catch((err) => {
+                onFormError();
+            }).finally(() => {
+                setDisplaySpinner(false);
+            })
         } else {
-            console.log(`**NOT** submitting form.\nname: ${name}\nemailAddress: ${emailAddress}\nbusinessName: ${businessName}\nbusinessWebsite: ${businessWebsite}`)
+            setDisplaySpinner(false);
         }
     }
+
+    const buttonText = displaySpinner ?  <Image src="/spinner_icon.svg" height={16} width={16} alt="social media services"/> : 'Submit'
 
     return (
         <div className={styles.formContainer}>
@@ -126,7 +159,7 @@ export default function Form() {
                 />
                 <span className={styles.buttonContainer}>
                     <button className={styles.homeButton}>
-                        Submit
+                        {buttonText}
                     </button>
                 </span>
             </form>

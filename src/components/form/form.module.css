@@ -44,7 +44,6 @@
 
 .homeButton {
     margin: 5px;
-    padding: 10px;
     background-color: unset;
     border: 3px solid black;
     border-radius: 10px;
@@ -52,6 +51,10 @@
     font-weight: 700;
     text-transform:uppercase;
     color: rgb(0,0,0);
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .homeButton:hover {
