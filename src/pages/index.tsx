@@ -9,6 +9,7 @@ import Link from '@/components/link/link'
 import NotificationContainer from '@/components/notification/notification_container';
 import { NotificationDef } from '@/components/notification/notification/notification_desc';
 import Image from 'next/image';
+import founderImage from '../../public/mike-lukas.png';
 import { randomUUID } from 'crypto';
 
 const inter = Inter({ subsets: ['latin'] })
@@ -132,7 +133,12 @@ export default function Home() {
                 <ContentContainer>
                     <div className={styles.businessDescriptionContainer}>
                         <div className={styles.imageContainer}>
-                            <img className={styles.founderImage} src="mike-lukas.png"></img>
+                            <Image
+                                src={founderImage}
+                                alt="Headshot of Mike Lukas, founder of Online Impact"
+                                className={styles.founderImage}
+                                placeholder="blur"
+                            />
                             <div className={styles.imageNotation}>
                                 <p>Mike Lukas</p>
                                 <p>Founder & Growth Marketer</p>
