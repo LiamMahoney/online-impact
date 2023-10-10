@@ -120,6 +120,7 @@
 .founderImage {
     max-width: 90%;
     border-radius: 25px;
+    height: auto;
 }
 
 .imageNotation {
